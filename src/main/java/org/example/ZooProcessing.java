@@ -18,18 +18,21 @@ import java.util.List;
 import java.util.stream.IntStream;
 
 public class ZooProcessing {
-    public void start(PrintStream output) {
+    public int start(PrintStream output) {
         var context = new AnnotationConfigApplicationContext(AppConfig.class);
         Zoo zoo = context.getBean(Zoo.class);
         DrawStart.mainMenu(output);
+        int totalCommand = 0;
 
         while(true) {
+
             DrawStart.mainMenu(output);
             int a;
             String command = Input.getString();
-            if(command == null || command.equalsIgnoreCase("выход")) {
-                return;
+            if (command == null || command.equalsIgnoreCase("выход")) {
+                return totalCommand;
             }
+            totalCommand += 1;
             try {
                 a = Integer.parseInt(command);
             } catch (Exception _) {
