@@ -11,8 +11,6 @@ import org.example.drawable.objects.DrawAddAnimal;
 import org.example.drawable.objects.DrawAnimals;
 import org.example.drawable.objects.DrawKGNumber;
 import org.example.drawable.objects.DrawStart;
-import org.example.entry.EntrAnimal;
-import org.example.entry.EntrThing;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.io.PrintStream;
@@ -23,10 +21,6 @@ public class ZooProcessing {
     public void start(PrintStream output) {
         var context = new AnnotationConfigApplicationContext(AppConfig.class);
         Zoo zoo = context.getBean(Zoo.class);
-//        VetService vetService = new VetService();
-//        EntrAnimal entrAnimal = new EntrAnimal();
-//        EntrThing entrThing = new EntrThing();
-//        Zoo zoo = new Zoo(vetService, entrAnimal, entrThing);
         DrawStart.mainMenu(output);
 
         while(true) {
