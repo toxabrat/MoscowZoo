@@ -17,9 +17,9 @@ public class ZooProcessingTest {
         ZooProcessing zooProcessing1 = new ZooProcessing();
 
         Input.setScanner(new Scanner(new ByteArrayInputStream("ВЫхоД".getBytes())));
-        int totalCommand = zooProcessing.start(System.out);
+        int totalCommand = zooProcessing.start(new PrintStream(new ByteArrayOutputStream()));
         Input.setScanner(new Scanner(new ByteArrayInputStream("".getBytes())));
-        int totalCommand1 = zooProcessing1.start(System.out);
+        int totalCommand1 = zooProcessing1.start(new PrintStream(new ByteArrayOutputStream()));
 
         assertEquals(0, totalCommand);
         assertEquals(0, totalCommand1);
@@ -31,7 +31,7 @@ public class ZooProcessingTest {
 
         Input.setScanner(new Scanner(
                 new ByteArrayInputStream("2\n3\n4\n1\nобезьяна\n2\n1\nвыхухоль\n10\n23\nтравоядное\n7".getBytes())));
-        int totalCommand = zooProcessing.start(System.out);
+        int totalCommand = zooProcessing.start(new PrintStream(new ByteArrayOutputStream()));
 
         assertEquals(5, totalCommand);
     }
